@@ -29,16 +29,34 @@ function validParentheses (s) {
       return false;
     }
   }
-  return arr.length === 0; // for cases when the parentheses match it will skip the false return and make the array length 0 so that it returns true
-};// i cant simply say return true for cases when i only have one parentherses '('
+  return arr.length === 0; // for cases when the parentheses match it will skip the false return and make the array length 0 so that it returns
+};// true is the arr length is 0 but false if its not 0
 
 console.log(validParentheses('{}'), '{}' ,'validParentheses');
 console.log(validParentheses('[}'), '[}' , 'validParentheses');
 console.log(validParentheses('[]}'), '[]}', 'validParentheses');
 console.log(validParentheses('('), '(', 'validParentheses');
-console.log(validParentheses(''), '', 'validParentheses');
-
 // would check if arr is empty which is not so it would return false
-
+console.log(validParentheses(''), '', 'validParentheses');
+// if length of array is 0 then true else false line 32
 
 //valid parentheses
+
+// best time to buy and sell
+
+function maxProfit (prices){
+  let minBuyPrice = prices[0]
+  let max = 0
+  for (let i =1;i<prices.length;i++){ // cant sell before i buy so start at 1
+    const sellPrice=prices[i]
+    const profit = sellPrice-minBuyPrice
+    max = Math.max(max,profit) //if profit is encounteres larger than my max value  update the max value
+    minBuyPrice=Math.min(minBuyPrice,prices[i]) //any time a day is cheaper to buy than the current min price i will update
+  }
+  return max
+};
+
+console.log(maxProfit([7, 1, 5, 3, 6, 4]), 'maxProfit [7,1,5,3,6,4]');
+
+
+// best time to buy and sell
