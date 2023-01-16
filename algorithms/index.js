@@ -49,15 +49,18 @@ function maxProfit (prices){
   let minBuyPrice = prices[0]
   let max = 0
   for (let i =1;i<prices.length;i++){ // cant sell before i buy so start at 1
-    const sellPrice=prices[i]
-    const profit = sellPrice - minBuyPrice //sell price should be bigger
-    max = Math.max(max,profit) //if profit encounteres larger than my max value  update the max value
-    minBuyPrice=Math.min(minBuyPrice,prices[i]) //any time a day is cheaper to buy than the current min price i will update
+    const sellPrice=prices[i] // price you will be selling at
+    const profit = sellPrice - minBuyPrice //sell price should be bigger subtract and find profit
+    max = Math.max(max,profit) //if profit encounteres larger value than my max value  update the max value
+    minBuyPrice=Math.min(minBuyPrice,prices[i]) //any time a day is cheaper to buy than the current min price i will update the variable
+     //which will be subtracted from the sellPrice
   }
-  return max
+  return max // return max profit
 };
 
 console.log(maxProfit([7, 1, 5, 3, 6, 4]), 'maxProfit buy at 1 sell at 6 [7,1,5,3,6,4]');
+console.log(maxProfit([[7, 6, 4, 3, 1]]), 'maxProfit 0 [7,1,5,3,6,4]');
+
 
 
 // best time to buy and sell
