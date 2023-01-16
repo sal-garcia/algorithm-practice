@@ -24,7 +24,7 @@ function validParentheses (s) {
   for (let i = 0; i < s.length; i++) {
     if (s[i] === "(" || s[i] === "{" || s[i] === "[") {
       arr.push(s[i]);
-    } else if (s[i] !== obj[arr.pop()]) { //if its not equal to the value that has just been pushed in the if statement with the || conditions
+    } else if (s[i] !== obj[arr.pop()]) { //if its not equal to the value of the property that has just been pushed in the if statement with the || conditions
 
       return false;
     }
@@ -33,6 +33,7 @@ function validParentheses (s) {
 };// true is the arr length is 0 but false if its not 0
 
 console.log(validParentheses('{}'), '{}' ,'validParentheses');
+console.log(validParentheses('{}[]'), '{}[]', 'validParentheses');
 console.log(validParentheses('[}'), '[}' , 'validParentheses');
 console.log(validParentheses('[]}'), '[]}', 'validParentheses');
 console.log(validParentheses('('), '(', 'validParentheses');
