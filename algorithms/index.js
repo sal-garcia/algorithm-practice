@@ -60,3 +60,23 @@ console.log(maxProfit([7, 1, 5, 3, 6, 4]), 'maxProfit [7,1,5,3,6,4]');
 
 
 // best time to buy and sell
+// valid palidrome
+
+function isPalindrome (s) {
+  let i = 0
+  s = s.replace(/[^a-zA-Z0-9]/g, '') //replace (^from after the start of each character in the string or line ranges- a-z and A-Z and 0-9 g means to test the whole string) with no space
+  s = s.toLowerCase()// then convert it to lower case
+  for (let j = s.length - 1; i < j;) { //if i is less than j
+    if (s[i] != s[j]) {
+
+      return false
+    }
+    console.log(s[i], 'i')
+    console.log(s[j], 'j')
+    i++
+    j--
+  }// increment and check each time and if not one fails then exit and return true
+  return true
+}
+
+//valid palindrome
