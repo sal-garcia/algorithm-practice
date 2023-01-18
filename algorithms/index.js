@@ -80,3 +80,37 @@ function isPalindrome (s) {
 }
 
 //valid palindrome
+
+//invert binary tree class
+class TreeNode {
+  constructor(val, left, right){
+  this.val = (val === undefined ? 0 : val)
+   this.left = (left === undefined ? null : left)
+   this.right = (right === undefined ? null : right)
+     }
+
+    }
+//invert binary tree class
+//inverted binary tree function
+// 1. If root is null, return null
+// 2. Create pointer variable and assign it to root.left pointer moves root down
+// so that the recursion can start again but from a different root
+// 3. Change root.left to equal root.right
+// 4. Change root.right to equal to temp
+// 5. invertTree(root.left)
+// 6. invertTree(root.right)
+
+// n is the number of nodes
+function invertTree (root) {
+  if (root === null) return null;
+  let pointer = root.left; // 2-- 1
+  root.left = root.right; //7 -- null
+  root.right = pointer; //2 -- null
+
+  invertTree(root.left);//2 left goes first then right
+  invertTree(root.right); // right is last to go
+
+  return root
+};
+// console.log(invertTree([4, 2, 7, 1, 3, 6, 9]),'Inverted tree [4,2,7,1,3,6,9]')
+//inverted binary tree function
