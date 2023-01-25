@@ -18,3 +18,11 @@ SELECT p.*,
 select n, (n * (1 + n)) / 2 AS res
 from kata
 --SUMMATION
+
+--UPPERCASE
+--you are given a table 'makeuppercase' with column 's',
+--return a table with column 's' and your result in a column
+--named 'res'.
+SELECT s, UPPER(s) as res
+FROM makeuppercase
+--UPPERCASE
