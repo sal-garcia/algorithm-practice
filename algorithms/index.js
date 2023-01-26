@@ -116,3 +116,27 @@ console.log(isPalindrome('tacocat'),'isPalindrome(tacocat)')
 
 console.log(isAnagram('anagram', 'nagaram'),'isAnagram (anagram tanagram)')
 // validAnagram
+
+//binarySearch
+
+function search(nums, target) {
+  let left = 0;
+  let right = nums.length - 1;//length of array minus 1
+
+  while (left <= right) {// while left is less or equal to right
+    const middle = Math.floor((left + right) / 2); //0+5/2 =2.5= 2
+
+    const potentialMatch = nums[middle];//nums[2]
+
+    if (target === potentialMatch) { // if the target is the middle return middle which is the index
+      return middle;
+    } else if (target < potentialMatch) {//else increment or decrement
+      right = middle - 1;
+    } else {
+      left = middle + 1
+    }
+  }
+  return -1
+};
+
+//binarySearch
