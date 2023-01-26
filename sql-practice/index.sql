@@ -26,3 +26,14 @@ from kata
 SELECT s, UPPER(s) as res
 FROM makeuppercase
 --UPPERCASE
+
+--UP and DOWN
+--you are given a table 'numbers' with columns 'numbers1' 'numbers2 and 'id'
+--return a table with similar structure
+--if the sum of a column is odd the column shows the minimum value
+--when the sum is even it shows the max value, use a case stament
+SELECT
+CASE WHEN SUM(number1)%2=1 THEN MIN(number1) ELSE MAX(number1) END AS number1,
+CASE WHEN SUM(number2)%2=1 THEN MIN(number2) ELSE MAX(number2) END AS number2
+FROM numbers
+--UP and DOWN
