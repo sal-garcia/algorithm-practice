@@ -37,3 +37,12 @@ CASE WHEN SUM(number1)%2=1 THEN MIN(number1) ELSE MAX(number1) END AS number1,
 CASE WHEN SUM(number2)%2=1 THEN MIN(number2) ELSE MAX(number2) END AS number2
 FROM numbers
 --UP and DOWN
+
+
+--REMOVE STRING SPACES
+--you are given a table 'nospace' with column 'x',
+--return a table with column 'x'
+--and your result in a column named 'res'.
+SELECT x, REPLACE(x, ' ', '') AS res
+FROM nospace
+--REMOVE STRING SPACES
