@@ -1,4 +1,10 @@
 --Simple Join
+<<<<<<< HEAD
+select products.*, companies.name AS company_name
+FROM products
+JOIN companies ON companies.id=products.company_id
+--assuming that company id matches
+=======
 --Assuming there are two tables(product and companies) with matching ID's columns
 --
 SELECT p.*,
@@ -6,6 +12,7 @@ SELECT p.*,
   FROM products as p,
        companies as c
  WHERE c.id = p.company_id --assuming that company id matches
+>>>>>>> main
 --the product id
 --could also be done with join
 --Simple Join
