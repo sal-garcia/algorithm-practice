@@ -71,46 +71,72 @@ function isPalindrome (s) {
 
       return false
     }
-    console.log(s[i], 'i')
-    console.log(s[j], 'j')
+    // console.log(s[i], 'i')
+    // console.log(s[j], 'j')
     i++
     j--
   }// increment and check each time and if not one fails then exit and return true
   return true
 }
-
+console.log(isPalindrome('tacocat'),'isPalindrome(tacocat)')
 //valid palindrome
 
-//invert binary tree class
-class TreeNode {
-  constructor(val, left, right){
-  this.val = (val === undefined ? 0 : val)
-   this.left = (left === undefined ? null : left)
-   this.right = (right === undefined ? null : right)
-     }
+// validAnagram
+ function isAnagram(s, t) {
+  if (s.length !== t.length) { //checking that the length is not different
+    return false
+  }
 
+  const sLetters = {}; //builds map
+
+  for (let char of s) { // for every character in the string s
+    if (!sLetters[char]) {
+      sLetters[char] = 1 // if the character doesnt exist, mark it as occurring once
+
+    } else {
+      sLetters[char]++  // if the character is found increment that count
     }
-//invert binary tree class
-//inverted binary tree function
-// 1. If root is null, return null
-// 2. Create pointer variable and assign it to root.left pointer moves root down
-// so that the recursion can start again but from a different root
-// 3. Change root.left to equal root.right
-// 4. Change root.right to equal to temp
-// 5. invertTree(root.left)
-// 6. invertTree(root.right)
+  }
+  for (let char of t) {  // if that character does not exist in t return false
+    if (!sLetters[char]) {
+      return false
+    }
+    if (sLetters[char]) { // if it is found in the map, then subtract it
+      sLetters[char]--
+    }
+    if (sLetters[char] === 0) { // if it becomes 0, then delete that property from the map
+      delete sLetters[char]
+    }
 
-// n is the number of nodes
-function invertTree (root) {
-  if (root === null) return null;
-  let pointer = root.left; // 2-- 1
-  root.left = root.right; //7 -- null
-  root.right = pointer; //2 -- null
-
-  invertTree(root.left);//2 left goes first then right
-  invertTree(root.right); // right is last to go
-
-  return root
+  }
+  console.log(Object.keys(sLetters))
+  return Object.keys(sLetters).length === 0
+  // if the length of the keys in the array is 0 then its truthy else its falsy
 };
-// console.log(invertTree([4, 2, 7, 1, 3, 6, 9]),'Inverted tree [4,2,7,1,3,6,9]')
-//inverted binary tree function
+
+console.log(isAnagram('anagram', 'nagaram'),'isAnagram (anagram tanagram)')
+// validAnagram
+
+//binarySearch
+
+function search(nums, target) {
+  let left = 0;
+  let right = nums.length - 1;//length of array minus 1
+
+  while (left <= right) {// while left is less or equal to right
+    const middle = Math.floor((left + right) / 2); //0+5/2 =2.5= 2
+
+    const potentialMatch = nums[middle];//nums[2]
+
+    if (target === potentialMatch) { // if the target is the middle return middle which is the index
+      return middle;
+    } else if (target < potentialMatch) {//else increment or decrement
+      right = middle - 1;
+    } else {
+      left = middle + 1
+    }
+  }
+  return -1
+};
+
+//binarySearch
