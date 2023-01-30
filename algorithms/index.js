@@ -140,3 +140,33 @@ function search(nums, target) {
 };
 
 //binarySearch
+
+//FibbonacciNthNumber
+//return the Nth number in a fibbonacci sequence
+//LINEAR TIME
+// function FibbonacciNthNumber(n){
+//   if(n<3) return 1;
+
+//   let prev = 1
+//   let curr = 1
+
+//   for (let i=2; i<n; i++){
+//     let next = prev+curr;//--3--5
+//     prev = curr;//1--2
+//     curr=next//2--3
+//   }
+//   return curr
+// }
+//LINEAR TIME
+//LOGARITHMIC TIME
+function FibbonacciNthNumber(n){
+  if(n<3){
+    return 1
+  }
+  return FibbonacciNthNumber(n-1)+FibbonacciNthNumber(n-2)
+}
+//LOGARITHMIC TIME
+console.log(FibbonacciNthNumber(6), '8thfibNthNumber')
+console.log(FibbonacciNthNumber(5),'5thfibNthNumber')
+
+//FibbonacciNthNumber
