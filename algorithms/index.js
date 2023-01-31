@@ -170,3 +170,43 @@ console.log(FibbonacciNthNumber(6), '8thfibNthNumber')
 console.log(FibbonacciNthNumber(5),'5thfibNthNumber')
 
 //FibbonacciNthNumber
+
+
+//FloodFill
+//constrains
+//m == image.length
+// n == image[i].length
+// 1 <= m, n <= 50
+// 0 <= image[i][j], color < 216
+// 0 <= sr < m
+// 0 <= sc < n
+//constrains
+
+var floodFill = function (image, sr, sc, color) {
+  const original = image[sr][sc] //red color starting point
+
+  function recurse(image, sr, sc) {//check boundaries
+    //if starting row is less than 0 or
+    //if starting row is greater than images length -1(because constrains sr<m not sr<=m) or
+    //if starting column is less than 0 or
+    //if starting column is greater than first index of images length -1(because constrains sc<n) or
+    //if image at sr and sc is not the same as the original or
+    //if image at sr and sc is the same as color or
+    //if these conditions are met return the image
+    if (sr < 0 || sr > image.length - 1 || sc < 0 || sc > image[0].length - 1 ||
+      image[sr][sc] !== original || image[sr][sc] === color) {//checks boundaries
+      return image // returns image as is if it meets if conditions
+    }
+    image[sr][sc] = color //color image at sr sc
+    recurse(image, sr + 1, sc)//moves starting row down 1
+    recurse(image, sr - 1, sc)//moves starting row up 1
+    recurse(image, sr, sc + 1)//moves starting column by one to the right
+    recurse(image, sr, sc - 1)//moves starting column by one to the left
+
+    return image //return final updated image
+
+  }
+  return recurse(image, sr, sc);
+}
+console.log(floodFill([[1, 1, 1], [1, 1, 0], [1, 0, 1]],1,1,2),'floodfill([[1,1,1],[1,1,0],[1,0,1]]),1,1,2')
+//FloodFill
