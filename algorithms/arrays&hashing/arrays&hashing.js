@@ -1,3 +1,4 @@
+//contains duplicate
 const containsDuplicate = (nums) => {
   const numsSet = new Set(nums);/* Time O(N) | Space O(N) */
   // console.log(numsSet.length,'numsset')
@@ -7,3 +8,4 @@ const containsDuplicate = (nums) => {
 };
 
 console.log(containsDuplicate([1, 2, 3, 1]),'containsduplicate([1,2,3,1])')
+//contains duplicate
