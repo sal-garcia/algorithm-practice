@@ -58,3 +58,20 @@ function twoSum(nums, target) {
 console.log(twoSum([1, 3, 2], 4), 'target is 4');
 console.log(twoSum([1, 3, 2], 5), 'targer is 5');
 //two sum
+
+//Group Anagrams
+
+function groupAnagrams(strs){
+  let results = {}
+  for (let word of strs){
+    let arranged = word.split('').sort().join('')
+    if (results[arranged]) {//if there is already a result
+      results[arranged].push(word)//add it to the array
+    }else{
+      results[arranged] = [word]//else just assign that new arranged word the unarranged word in an array
+    }
+  }
+  return Object.values(results) //returns the values as an array
+}
+console.log(["eat", "tea", "tan", "ate", "nat", "bat"])
+//Group Anagrams
