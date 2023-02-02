@@ -64,7 +64,7 @@ console.log(twoSum([1, 3, 2], 5), 'targer is 5');
 function groupAnagrams(strs){
   let results = {}
   for (let word of strs){
-    let arranged = word.split('').sort().join('')
+    let arranged = word.split("").sort().join("")
     if (results[arranged]) {//if there is already a result
       results[arranged].push(word)//add it to the array
     }else{
@@ -73,5 +73,6 @@ function groupAnagrams(strs){
   }
   return Object.values(results) //returns the values as an array
 }
-console.log(["eat", "tea", "tan", "ate", "nat", "bat"])
+
+console.log(groupAnagrams(["eat", "tea", "tan", "ate", "nat", "bat"]),'groupAnagrams(["eat", "tea", "tan", "ate", "nat", "bat"])')
 //Group Anagrams
