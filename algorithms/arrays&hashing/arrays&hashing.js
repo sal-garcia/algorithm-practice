@@ -76,3 +76,20 @@ function groupAnagrams(strs){
 
 console.log(groupAnagrams(["eat", "tea", "tan", "ate", "nat", "bat"]),'groupAnagrams(["eat", "tea", "tan", "ate", "nat", "bat"])')
 //Group Anagrams
+
+//Top K Frequent Elements
+
+var topKFrequent = (nums, k) => {
+  let obj = {}
+  for (let element of nums) {
+    obj[element] = (obj[element] ?? 0) + 1//nullish operator
+
+  }
+  // console.log(Object.entries(obj).map(val => Number(val[0])), 'object entries')
+
+//.entries arranges from smallest to biggest automatically
+//val[0] is the properties
+  return Object.entries(obj).map(val => Number(val[0])).slice(0, k);
+}
+
+//Top K Frequent Elements
