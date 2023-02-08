@@ -89,7 +89,7 @@ var topKFrequent = (nums, k) => {
 
 //.entries arranges from smallest to biggest automatically
 //val[0] is the properties
-  return Object.entries(obj).map(val => Number(val[0])).slice(0, k);
+  return Object.entries(map).sort((a, b) => b[1] - a[1]).map(val => Number(val[0])).slice(0, k);
 }
 
 //Top K Frequent Elements
