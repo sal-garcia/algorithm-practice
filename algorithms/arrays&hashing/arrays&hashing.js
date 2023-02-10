@@ -80,16 +80,18 @@ console.log(groupAnagrams(["eat", "tea", "tan", "ate", "nat", "bat"]),'groupAnag
 //Top K Frequent Elements
 
 var topKFrequent = (nums, k) => {
-  let obj = {}
-  for (let element of nums) {
-    obj[element] = (obj[element] ?? 0) + 1//nullish operator
-
+  let storage = {}
+  for (let num of nums) {
+    storage[num] = (storage[num] ?? 0) + 1
   }
-  // console.log(Object.entries(obj).map(val => Number(val[0])), 'object entries')
-
-//.entries arranges from smallest to biggest automatically
-//val[0] is the properties
-  return Object.entries(map).sort((a, b) => b[1] - a[1]).map(val => Number(val[0])).slice(0, k);
+  return Object.entries(storage).sort((a, b) => b[1] - a[1]).map(val => Number(val[0])).slice(0, k);
 }
+//sort from biggest to smallest value not property which would be index[1] since
+//Object.entries turns the property and value into an array which results in an array of arrays
+//[[][][]]
+//.map() then returns the result in a single array
+// but first it turns the index at [0] of each of the arrays into a number
+//then slice simply slices the result array from map from 0 - k
+console.log(topKFrequent([3, 3, 3, 7, 7, 9],2),'topkFrequent[3,3,3,7,7,9],2')
 
 //Top K Frequent Elements
