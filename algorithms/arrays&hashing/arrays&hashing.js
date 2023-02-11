@@ -100,7 +100,8 @@ console.log(topKFrequent([3, 3, 3, 7, 7, 9],2),'topkFrequent[3,3,3,7,7,9],2')
 
 function productExceptSelf(nums) {
   const result = [];
-  let prefix = 1;//initiated at 1 else result[i] will be undefined
+  //the 1 that initiates the prefix and postfix are 1 so they dont have to mutate the very first value
+  let prefix = 1;
   let postfix = 1;
   //multiples whats to the left moving toward the right
   for (let i = 0; i < nums.length; i++) {
@@ -110,7 +111,7 @@ function productExceptSelf(nums) {
   }
 
 
-  //multiplies whats to the right
+  //multiplies whats to the right moving towards the left
   for (let i = nums.length - 2; i >= 0; i--) {//if i goes too far to left it becomes negative thus exits the loop
     postfix *= nums[i + 1];
     result[i] *= postfix; //cant be nums.length-1 because of this line
