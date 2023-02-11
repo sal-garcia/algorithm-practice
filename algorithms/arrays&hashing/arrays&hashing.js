@@ -95,3 +95,30 @@ var topKFrequent = (nums, k) => {
 console.log(topKFrequent([3, 3, 3, 7, 7, 9],2),'topkFrequent[3,3,3,7,7,9],2')
 
 //Top K Frequent Elements
+
+//productOfArrayExceptSelf
+
+function productExceptSelf(nums) {
+  const result = [];
+  let prefix = 1;//initiated at 1 else result[i] will be undefined
+  let postfix = 1;
+  //multiples whats to the left moving toward the right
+  for (let i = 0; i < nums.length; i++) {
+    result[i] = prefix;//1,1,2,6 //cant use for of because i use [i] here
+    prefix *= nums[i];//1,2,6,24
+    console.log(result, 'result')
+  }
+
+
+  //multiplies whats to the right
+  for (let i = nums.length - 2; i >= 0; i--) {//if i goes too far to left it becomes negative thus exits the loop
+    postfix *= nums[i + 1];
+    result[i] *= postfix; //cant be nums.length-1 because of this line
+    //so that i can be reused
+  }
+
+  return result;
+};
+//the very last number of the array only runs thru the first foor loop
+
+//productOfArrayExceptSelf
