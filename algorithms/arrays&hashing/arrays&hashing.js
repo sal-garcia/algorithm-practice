@@ -123,3 +123,46 @@ function productExceptSelf(nums) {
 //the very last number of the array only runs thru the first foor loop
 
 //productOfArrayExceptSelf
+
+
+//validSodoku
+
+var isValidSudoku = function (board) {
+  for (let i = 0; i < 9; i++) {//creates a new row/col/box for every 9 iterations of the j in loop below
+    let row = new Set();
+    let col = new Set();
+    let box = new Set();
+
+    for (let j = 0; j < 9; j++) {//runs thru j first then once its done exits and increments i then reinitializes j and runs thru it again
+      let _row = board[i][j];//[i0][j0]
+      let _col = board[j][i];//[j0][i0]
+      let _box = board[3 * Math.floor(i / 3) + Math.floor(j / 3)][3 * (i % 3) + (j % 3)] //done in order left to right for both []
+      if (_row != '.') {//CHECKS ROW IF ITS NOT .
+
+        if (row.has(_row)) {//DOES SECOND CHECK ON ROW IS IT A DUPLICATE?
+          return false;//IF IT IS RETURN FALSE
+        }
+        row.add(_row);// IF ITS NOT ADD IT TO THE SET OBJ
+      }
+
+      if (_col != '.') {
+        if (col.has(_col)) return false;
+        col.add(_col);
+      }
+
+      if (_box != '.') {
+        if (box.has(_box)) return false;
+        box.add(_box);
+      }
+    }
+  }
+  return true //IF IT NEVER RETURNS FALSE AND NONE OF THE VALUES DUPLICATE
+};
+
+//second for loop checks one row and column and box at a time by creating one single set object
+//then checks the second column and row and box with a new set obj
+//so on and so forth
+
+console.log(isValidSudoku([["5", "3", ".", ".", "7", ".", ".", ".", "."], ["6", ".", ".", "1", "9", "5", ".", ".", "."], [".", "9", "8", ".", ".", ".", ".", "6", "."], ["8", ".", ".", ".", "6", ".", ".", ".", "3"], ["4", ".", ".", "8", ".", "3", ".", ".", "1"], ["7", ".", ".", ".", "2", ".", ".", ".", "6"], [".", "6", ".", ".", ".", ".", "2", "8", "."], [".", ".", ".", "4", "1", "9", ".", ".", "5"], [".", ".", ".", ".", "8", ".", ".", "7", "9"]]),'isvalidsodoku')
+
+//validSodoku
