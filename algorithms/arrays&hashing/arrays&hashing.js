@@ -166,3 +166,49 @@ var isValidSudoku = function (board) {
 console.log(isValidSudoku([["5", "3", ".", ".", "7", ".", ".", ".", "."], ["6", ".", ".", "1", "9", "5", ".", ".", "."], [".", "9", "8", ".", ".", ".", ".", "6", "."], ["8", ".", ".", ".", "6", ".", ".", ".", "3"], ["4", ".", ".", "8", ".", "3", ".", ".", "1"], ["7", ".", ".", ".", "2", ".", ".", ".", "6"], [".", "6", ".", ".", ".", ".", "2", "8", "."], [".", ".", ".", "4", "1", "9", ".", ".", "5"], [".", ".", ".", ".", "8", ".", ".", "7", "9"]]),'isvalidsodoku')
 
 //validSodoku
+
+
+//Longest Consecutive Sequence
+//1:first check that the nums array has values and is not 0 or null
+//2:Create an Object set with the nums array, each value in the set is unique
+//so if its repeated it will only count it as one
+//3:initiate a variable longest that will be changed when met with a variable that is iterated more times than the value
+// longest holds.
+//4: loop thru each element in the nums array
+//5: check if the set does not have a value of the element your looping thru - 1
+//6: if the set does have the value then loop to the next element
+//7: if the set does not have the value then initiate a variable count to be 0,
+//8: the count variable will be use to count how long the consecutive sequence is
+//9: it will do this by using a while loop to check if the set obj has the value of count + the current element num
+//10: if the set does have that value then it will increment the count variable until the while loop if false
+//11: then it will compare the value of that count variable with the value of the longest variable(which is the value of a past count)
+//12: and finally it will assign the variable longest the max value of comparing longest and count
+//13: once it is done iterating thru all then it will return whatever the longest value which should be the biggest value
+//that count has incremented to
+
+
+
+var longestConsecutive = function (nums) {
+  if (nums == null || nums.length === 0) {//if num even has value check
+    return 0
+  };
+
+  const set = new Set(nums);
+  let longest = 0; //keeps track of longest consecutive sequence
+  for (let num of nums) {
+    if (!set.has(num - 1)) {//if set does not have num-1 value execute code block check
+      let count = 0; // keeps track of the size/incrementation of the sequence(of how long every sequence is)
+      while (set.has(count + num)) {//while set has cout+nums value (check to see if there will be a sequence)
+        count++;
+      }
+      longest = Math.max(longest, count);//compares value of past sequences with current sequences to obtain largest one
+    }
+  }
+  return longest;// returns the final longest sequence
+};
+
+console.log(longestConsecutive([100, 4, 200, 1, 3, 2]),'longestConsecutive([100,4,200,1,3,2])')
+
+
+
+//Longest Consecutive Sequence
