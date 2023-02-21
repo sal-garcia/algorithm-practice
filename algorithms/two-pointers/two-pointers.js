@@ -36,7 +36,7 @@ console.log(isPalindrome('race car'),'isPalindrome(race car)')
 //6:if it is return [left + 1 and right + 1] because of indexing
 //7:if sum is less than target increment left
 //8:if target is less than sum decrement right to move the right pointer thru the whole array
-var twoSum = function (numbers, target) {
+var twoSumII = function (numbers, target) {
   let [left, right] = [0, numbers.length - 1];
 
   while (left < right) {//0<2
@@ -53,4 +53,4 @@ var twoSum = function (numbers, target) {
   }
 
 };
-console.log(twoSum([2, 7, 11, 15]),'twoSum([2,7,11,15])')
+console.log(twoSumII([2, 7, 11, 15], 9),'twoSumII([2, 7, 11, 15],9)')
