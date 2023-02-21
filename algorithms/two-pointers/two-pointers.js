@@ -21,5 +21,36 @@ var isPalindrome = function (s) {
   }
   return true
 }
-console.log(isPalindrome(race car),'isPalindrome(race car)')
+console.log(isPalindrome('race car'),'isPalindrome(race car)')
 //validPalindrome
+
+//Two Sum II
+
+//difference between two sum one is O(n) complexity, this one must be constant
+//start by defining two POINTERS
+//1:destructure 0 and the numbers array length-1 into two different variables
+//2:left being 0 and right being the numbers.length-1
+//3:while loops while left is less than right
+//4:declare a sum variable and set it equals to numbers[left] + numbers[right]
+//5:check if the sum is equal to target
+//6:if it is return [left + 1 and right + 1] because of indexing
+//7:if sum is less than target increment left
+//8:if target is less than sum decrement right to move the right pointer thru the whole array
+var twoSum = function (numbers, target) {
+  let [left, right] = [0, numbers.length - 1];
+
+  while (left < right) {//0<2
+    const sum = numbers[left] + numbers[right]; //numbers AT left and AT right
+    // console.log(sum,'sum')
+
+    if (sum === target) return [left + 1, right + 1];//because of indexing or else the solution would be [0,1] in the first test case
+
+
+    if (sum < target) left++;
+
+
+    if (target < sum) right--;
+  }
+
+};
+console.log(twoSum([2, 7, 11, 15]),'twoSum([2,7,11,15])')
